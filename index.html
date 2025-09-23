@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coolock - Smart Shared Fridges for University Halls</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        /* Container for Centering Content */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: auto;
+            padding: 0 20px;
+        }
+        /* Header and Navigation Bar */
+        header {
+            background: #ffffff;
+            color: #333;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #007bff;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+        /* Section Styling */
+        section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        /* Hero Section (Home) */
+        #home {
+            background: #007bff;
+            color: #fff;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #home h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        #home p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+        /* Grid Layout for Features and Impact */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: #007bff;
+        }
+        .card p {
+            font-size: 1rem;
+        }
+        /* Impact Section Specific Styles */
+        .impact-card {
+            text-align: center;
+        }
+        .impact-card .stat {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #007bff;
+        }
+        .impact-card .description {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 10px;
+        }
+        /* "How it Works" Section */
+        #how .grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        /* Call to Action Section */
+        #cta {
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .cta-button:hover {
+            background: #0056b3;
+        }
+        /* Footer */
+        footer {
+            background: #f2f2f2;
+            text-align: center;
+            padding: 20px;
+            color: #555;
+        }
+        /* Responsive Design */
+        @media(max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+            #home {
+                height: auto;
+                padding: 100px 20px;
+            }
+            #how .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Coolock</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">The What</a></li>
+                    <li><a href="#how">The How</a></li>
+                    <li><a href="#impact">The Impact</a></li>
+                    <li><a href="#who">The Who</a></li>
+                    <li><a href="#cta">Get Involved</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <h2>Tired of noisy, smelly, and wasteful personal fridges?</h2>
+        <p>Coolock offers a smart, sustainable, and affordable shared refrigeration solution for university students. Say goodbye to the hassle of owning a fridge and hello to a cooler way to live on campus.</p>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">WHAT: Our Solution</h2>
+            <p style="text-align:center; max-width: 800px; margin: auto;">Coolock is a shared, secure community fridge system designed for university dormitories. It's simple, efficient, and built for student life.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Simple Pin-Code Access</h3>
+                    <p>No apps, no cards, no fuss. A simple pin-code is all you need to access your personal locker. This means no complicated software for us to code or maintain, and a seamless experience for you.</p>
+                </div>
+                <div class="card">
+                    <h3>Hassle-Free Maintenance</h3>
+                    <p>We handle everything. Coolock units are professionally cleaned and given a tune-up at the end of every semester. No more defrosting a mini-fridge during finals week.</p>
+                </div>
+                <div class="card">
+                    <h3>Conveniently Located</h3>
+                    <p>We install and maintain a Coolock unit in the pantry or kitchen area on each floor of the residence hall, right where you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how">
+        <div class="container">
+            <h2 class="section-title">HOW: The Model</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>For Students</h3>
+                    <p>For just S$20 per month, you get your own secure fridge locker. This is the same price students currently pay just for the electricity of an inefficient personal fridge. With Coolock, you get the convenience without the hassle of buying, moving, cleaning, or selling a fridge.</p>
+                </div>
+                <div class="card">
+                    <h3>For the University</h3>
+                    <p>A risk-free partnership. We manage installation, maintenance, electricity costs, and student relations. The university can associate a fridge locker with certain rooms, similar to the existing model for air conditioning, creating a new revenue stream and promoting a sustainable campus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact">
+        <div class="container">
+            <h2 class="section-title">IMPACT: A Greener & Better Campus</h2>
+            <div class="grid">
+                <div class="impact-card">
+                    <div class="stat">75%</div>
+                    <div class="description">Reduction in electricity, saving 1.6 million kWh per year – enough to power 400 HDB flats.</div>
+                </div>
+                <div class="impact-card">
+                    <div class="stat">19,000 kg</div>
+                    <div class="description">Of e-waste avoided annually, equivalent to the weight of a fully loaded double-decker bus.</div>
+                </div>
+                <div class="impact-card">
+                    <div class="stat">131,000 kg</div>
+                    <div class="description">Of CO2 saved per year, which would require planting 21,000 trees to offset.</div>
+                </div>
+            </div>
+             <div class="grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>Better Living Conditions</h3>
+                    <p>Eliminate the constant 43 dB hum from personal fridges—40% over WHO guidelines for sleeping spaces. Reclaim up to 1/20 of your floor space and say goodbye to bad smells in your room.</p>
+                </div>
+                <div class="card">
+                    <h3>Time & Effort Saved</h3>
+                    <p>Students save an average of 5 hours on collecting and disposing of a personal fridge, plus 6 hours annually on cleaning and maintenance.</p>
+                </div>
+                 <div class="card">
+                    <h3>Reduced Landfill</h3>
+                    <p>Avoids 175 cubic meters of landfill space annually – the volume of five 20-foot shipping containers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="who">
+        <div class="container">
+            <h2 class="section-title">WHO: Team & Partners</h2>
+            <p style="text-align:center; max-width: 800px; margin: auto;">Our success relies on a strong network of customers, partners, and supporters working together to create a more sustainable campus life.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Our Customers</h3>
+                    <p>Our end-users are the 14,000 students living in NTU halls. Our key partners are the university and residence hall administrators who act as our middlemen.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Suppliers & Team</h3>
+                    <p>We partner with leading manufacturers like Hangzhou Dongcheng Electronics. Our operations team includes technicians, cleaning crews, and delivery drivers dedicated to a smooth service.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Supporters</h3>
+                    <p>We are seeking funding from NTU, government bodies, investment firms, and sustainability grants to launch and scale our vision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2 class="section-title" style="color:#fff;">Help Us Launch Our Pilot</h2>
+            <p>We are seeking S$10,000 for a pilot test of one Coolock unit. This will allow us to gather feedback and demonstrate the benefits to the student community over a one-month period in a public space on campus.</p>
+            <a href="mailto:your-email@example.com?subject=Coolock Pilot Funding Inquiry" class="cta-button">Partner With Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Coolock Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
