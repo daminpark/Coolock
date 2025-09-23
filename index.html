@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coolock - Smart Shared Fridges for University Halls</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2A57A0; /* Blue from your logo */
+            --secondary-color: #f4f7fc;
+            --text-color: #343a40;
+            --heading-color: #1d2d44;
+            --white-color: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        }
+
         /* General Body Styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: var(--white-color);
+            color: var(--text-color);
         }
-        /* Container for Centering Content */
+
+        /* Container */
         .container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: auto;
-            overflow: auto;
             padding: 0 20px;
         }
-        /* Header and Navigation Bar */
+
+        /* Header */
         header {
-            background: #ffffff;
-            color: #333;
+            background: var(--white-color);
             padding: 1rem 0;
             border-bottom: 1px solid #e0e0e0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         header .container {
             display: flex;
@@ -47,7 +63,8 @@
         .logo-container h1 {
             margin: 0;
             font-size: 1.8rem;
-            color: #007bff;
+            color: var(--heading-color);
+            font-weight: 700;
         }
         nav ul {
             padding: 0;
@@ -56,116 +73,154 @@
         }
         nav ul li {
             display: inline;
-            margin-left: 20px;
+            margin-left: 25px;
         }
         nav a {
-            color: #333;
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
         nav a:hover {
-            color: #007bff;
+            color: var(--primary-color);
         }
+
         /* Section Styling */
         section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        section:last-of-type {
-            border-bottom: none;
+            padding: 80px 20px;
         }
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-size: 2.8rem;
             font-weight: 700;
+            color: var(--heading-color);
         }
         .section-subtitle {
             text-align: center;
-            max-width: 800px;
-            margin: -20px auto 40px auto;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
             font-size: 1.1rem;
-            color: #555;
+            color: #6c757d;
         }
-        /* Hero Section (Home) */
+        
+        /* Hero Section */
         #home {
-            background: #007bff;
-            color: #fff;
-            height: 80vh;
+            background-color: var(--white-color);
+            padding: 60px 20px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
+            min-height: 85vh;
         }
-        #home h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
         }
-        #home p {
+        .hero-text h2 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+        .hero-text .highlight {
+            color: var(--primary-color);
+        }
+        .hero-text p {
             font-size: 1.2rem;
-            max-width: 600px;
+            margin: 20px 0 30px 0;
         }
-        /* Grid Layout for Features and Impact */
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(42, 87, 160, 0.3);
+        }
+
+        /* Card Styling */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px;
         }
         .card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: var(--white-color);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             text-align: center;
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
         .card h3 {
             font-size: 1.5rem;
-            margin-top: 0;
-            color: #007bff;
+            margin-bottom: 15px;
+            color: var(--heading-color);
         }
-        .card p {
-            font-size: 1rem;
+
+        /* Alternating Background Sections */
+        #what, #who, #media {
+            background-color: var(--secondary-color);
         }
-        /* Image styling */
-        .fridge-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        /* Impact Section Specific Styles */
+
+        /* Impact Section Specifics */
         .impact-card .stat {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #007bff;
+            color: var(--primary-color);
+            margin-bottom: 5px;
         }
         .impact-card .description {
             font-size: 1rem;
-            color: #555;
-            margin-top: 10px;
+            color: var(--text-color);
         }
-        /* Media Hub (Poster & Video) Section */
+
+        /* Media Hub Section */
         .media-hub-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            gap: 50px;
+            align-items: start;
         }
         .poster-container img {
             max-width: 100%;
             border: 1px solid #ddd;
             border-radius: 8px;
+            box-shadow: var(--shadow);
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
         }
         .video-container iframe {
             position: absolute;
@@ -174,77 +229,52 @@
             width: 100%;
             height: 100%;
         }
-        .download-button {
-            display: inline-block;
-            background: #28a745;
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .download-button:hover {
-            background: #218838;
-        }
-        /* Call to Action Section */
-        #cta {
-            background: #333;
-            color: #fff;
-            text-align: center;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #007bff;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .cta-button:hover {
-            background: #0056b3;
-        }
+        
         /* Footer */
         footer {
-            background: #f2f2f2;
+            background: var(--heading-color);
             text-align: center;
-            padding: 40px 20px;
-            color: #555;
-        }
-        .credits {
-            margin-top: 20px;
-            font-size: 0.9rem;
+            padding: 50px 20px;
+            color: rgba(255, 255, 255, 0.7);
         }
         .footer-logos img {
-            height: 40px;
+            height: 60px; /* Increased size */
             margin: 0 15px;
-            filter: grayscale(100%);
-            opacity: 0.6;
+            /* Removed grayscale filter */
         }
+        .credits {
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+        .credits p {
+            margin: 5px 0;
+        }
+        .credits strong {
+            color: var(--white-color);
+        }
+
         /* Responsive Design */
-        @media(max-width: 768px) {
-            header .container {
-                flex-direction: column;
+        @media(max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
-            nav ul {
-                margin-top: 15px;
-            }
-            nav ul li {
-                display: inline;
-                margin: 0 10px;
-            }
-            #home {
-                height: auto;
-                padding: 100px 20px;
+            .hero-image {
+                order: -1; /* Puts image on top on mobile */
+                margin-bottom: 40px;
             }
             .media-hub-grid {
                 grid-template-columns: 1fr;
             }
             .video-container {
-                margin-top: 30px;
+                margin-top: 40px;
             }
+        }
+        @media(max-width: 768px) {
+            header .container { flex-direction: column; gap: 15px; }
+            nav ul li { margin: 0 10px; }
+            .section-title { font-size: 2.2rem; }
+            .hero-text h2 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -252,46 +282,59 @@
 
     <header>
         <div class="container">
-            <div class="logo-container">
-                <!-- TODO: Replace 'coolock-logo.png' with your actual logo file -->
-                <img src="coolock-logo.png" alt="Coolock Logo">
+            <a href="#home" class="logo-container" style="text-decoration: none;">
+                <!-- TODO: Make sure your logo is in an 'assets' folder -->
+                <img src="assets/coolock-logo.png" alt="Coolock Logo">
                 <h1>Coolock</h1>
-            </div>
+            </a>
             <nav>
                 <ul>
                     <li><a href="#why">Why</a></li>
                     <li><a href="#what">What</a></li>
                     <li><a href="#how">How</a></li>
-                    <li><a href="#who">Who</a></li>
                     <li><a href="#impact">Impact</a></li>
                     <li><a href="#media">Media</a></li>
-                    <li><a href="#cta">Contact</a></li>
+                    <li><a href="#cta" class="btn">Get Involved</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section id="home">
-        <h2>A smarter, sustainable, and shared fridge for university life.</h2>
-        <p>Say goodbye to the hassle of owning a fridge and hello to a cooler way to live on campus.</p>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h2>A <span class="highlight">smarter, sustainable</span> way to keep cool on campus.</h2>
+                    <p>Coolock replaces noisy, wasteful personal mini-fridges with a sleek, shared, and secure solution for university halls.</p>
+                    <a href="#why" class="btn">Discover the Problem</a>
+                </div>
+                <div class="hero-image">
+                    <!-- TODO: Place your fridge photo in the 'assets' folder -->
+                    <img src="assets/fridge-photo.jpg" alt="Coolock Shared Fridge Lockers">
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="why">
         <div class="container">
             <h2 class="section-title">WHY: The Problem with Personal Fridges</h2>
-            <p class="section-subtitle">Personal mini-fridges in dorm rooms are a source of significant environmental waste, noise pollution, and inconvenience for students. Fridges are a necessity, but the current model is broken.</p>
+            <p class="section-subtitle">Fridges are a necessity, but the current model of one-per-student is inefficient, disruptive, and environmentally unsustainable.</p>
             <div class="grid">
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-leaf"></i></div>
                     <h3>Environmentally Damaging</h3>
-                    <p>Thousands of individual fridges on campus consume massive amounts of electricity and create tons of e-waste, CO2 emissions, and landfill every year.</p>
+                    <p>Thousands of individual fridges create tons of e-waste, CO2 emissions, and landfill every year, consuming massive amounts of electricity.</p>
                 </div>
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-bed"></i></div>
                     <h3>Disruptive to Student Life</h3>
-                    <p>The constant 43 dB hum is 40% over WHO guidelines for sleep. They take up precious room space, create bad smells, and are a hassle to maintain, move, and dispose of.</p>
+                    <p>The constant hum is 40% over WHO guidelines for sleeping spaces. They take up precious room space and are a hassle to maintain and move.</p>
                 </div>
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-wallet"></i></div>
                     <h3>Inefficient and Costly</h3>
-                    <p>Students pay for electricity and the fridge itself, only to throw it away or sell it at a loss. It's a wasteful cycle, year after year.</p>
+                    <p>Students pay for the fridge and its electricity, only to throw it away or sell it at a loss. It's a wasteful cycle, year after year.</p>
                 </div>
             </div>
         </div>
@@ -299,22 +342,23 @@
 
     <section id="what">
         <div class="container">
-            <h2 class="section-title">WHAT: Our Solution</h2>
-            <p class="section-subtitle">Coolock is a shared, secure community fridge system designed for university dormitories. It's simple, efficient, and built for student life.</p>
+            <h2 class="section-title">WHAT: The Coolock Solution</h2>
+            <p class="section-subtitle">A simple, secure, and fully-serviced shared refrigeration system designed from the ground up for the modern student.</p>
             <div class="grid">
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-keypad"></i></div>
                     <h3>Simple Pin-Code Access</h3>
-                    <p>No apps, no cards, no fuss. A simple pin-code is all you need to access your personal locker. This means no complicated software for us to code or maintain, and a seamless experience for you.</p>
+                    <p>No apps, no cards, no fuss. A simple pin is all you need. This means a seamless experience for you and no complex software for us to maintain.</p>
                 </div>
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-sparkles"></i></div>
                     <h3>Hassle-Free Maintenance</h3>
-                    <p>We handle everything. Coolock units are professionally cleaned and given a tune-up at the end of every semester. No more defrosting a mini-fridge during finals week.</p>
+                    <p>We handle everything. Coolock units are professionally cleaned and serviced every semester. No more defrosting a mini-fridge during finals week.</p>
                 </div>
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-map-pin"></i></div>
                     <h3>Conveniently Located</h3>
-                    <p>We install and maintain a Coolock unit in the pantry or kitchen area on each floor of the residence hall, right where you need it.</p>
-                    <!-- TODO: Replace 'fridge-photo.jpg' with an actual photo of the fridge lockers -->
-                    <img src="fridge-photo.jpg" alt="Coolock shared fridge lockers" class="fridge-image">
+                    <p>We install and maintain a Coolock unit in the pantry or kitchen area on each floor of the residence hall, right where you need it most.</p>
                 </div>
             </div>
         </div>
@@ -322,36 +366,17 @@
 
     <section id="how">
         <div class="container">
-            <h2 class="section-title">HOW: The Business Model</h2>
-            <div class="grid">
+            <h2 class="section-title">HOW: A Win-Win Business Model</h2>
+            <div class="grid" style="grid-template-columns: 1fr 1fr;">
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
                     <h3>For Students</h3>
-                    <p>For just S$20 per month, you get your own secure fridge locker. This is the same price students currently pay just for the electricity of an inefficient personal fridge. With Coolock, you get the convenience without the hassle of buying, moving, cleaning, or selling a fridge.</p>
+                    <p>For just S$20/month—the same price as running a personal fridge—you get secure, hassle-free cooling without the burden of ownership. Save time, money, and space.</p>
                 </div>
                 <div class="card">
+                    <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
                     <h3>For the University</h3>
-                    <p>A risk-free partnership. We manage installation, maintenance, electricity costs, and student relations. The university can associate a fridge locker with certain rooms, similar to the existing model for air conditioning, creating a new revenue stream and promoting a sustainable campus.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="who">
-        <div class="container">
-            <h2 class="section-title">WHO: Team & Partners</h2>
-            <p class="section-subtitle">Our success relies on a strong network of customers, partners, and supporters working together to create a more sustainable campus life.</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Our Customers</h3>
-                    <p>Our end-users are the 14,000 students living in NTU halls. Our key partners are the university and residence hall administrators who act as our middlemen.</p>
-                </div>
-                <div class="card">
-                    <h3>Our Suppliers & Team</h3>
-                    <p>We partner with leading manufacturers like Hangzhou Dongcheng Electronics. Our operations team includes technicians, cleaning crews, and delivery drivers dedicated to a smooth service.</p>
-                </div>
-                <div class="card">
-                    <h3>Our Supporters</h3>
-                    <p>We are seeking funding from NTU, government bodies, investment firms, and sustainability grants to launch and scale our vision.</p>
+                    <p>A zero-risk partnership. We manage everything from installation to electricity. This promotes campus sustainability and offers a new amenity for students.</p>
                 </div>
             </div>
         </div>
@@ -359,31 +384,38 @@
 
     <section id="impact">
         <div class="container">
-            <h2 class="section-title">IMPACT: A Greener & Better Campus</h2>
+            <h2 class="section-title">IMPACT: A Better & Greener Campus</h2>
+            <p class="section-subtitle">By consolidating refrigeration, Coolock creates a massive positive impact on both the environment and student well-being.</p>
             <div class="grid">
                 <div class="card impact-card">
+                    <div class="icon"><i class="fa-solid fa-bolt"></i></div>
                     <div class="stat">75%</div>
-                    <div class="description">Reduction in electricity, saving 1.6 million kWh per year.</div>
+                    <div class="description">Reduction in electricity use</div>
                 </div>
                 <div class="card impact-card">
+                    <div class="icon"><i class="fa-solid fa-bus"></i></div>
                     <div class="stat">19,000 kg</div>
-                    <div class="description">Of e-waste avoided annually, the weight of a double-decker bus.</div>
+                    <div class="description">Of e-waste avoided annually</div>
                 </div>
                 <div class="card impact-card">
-                    <div class="stat">131,000 kg</div>
-                    <div class="description">Of CO2 saved per year, requiring 21,000 trees to offset.</div>
+                    <div class="icon"><i class="fa-solid fa-tree"></i></div>
+                    <div class="stat">21,000</div>
+                    <div class="description">Trees worth of CO2 saved per year</div>
                 </div>
                 <div class="card impact-card">
-                    <div class="stat">40%</div>
-                    <div class="description">Noise reduction in rooms by eliminating fridges that exceed WHO sleep guidelines.</div>
+                    <div class="icon"><i class="fa-solid fa-volume-xmark"></i></div>
+                    <div class="stat">40% Quieter</div>
+                    <div class="description">Than WHO noise limits for sleep</div>
                 </div>
                 <div class="card impact-card">
-                    <div class="stat">11 Hours</div>
-                    <div class="description">Average time saved per student per year on fridge cleaning, maintenance, and logistics.</div>
+                    <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="stat">11+ Hours</div>
+                    <div class="description">Saved per student annually</div>
                 </div>
                  <div class="card impact-card">
+                    <div class="icon"><i class="fa-solid fa-box-archive"></i></div>
                     <div class="stat">175 m³</div>
-                    <div class="description">Of landfill space avoided annually, the volume of five shipping containers.</div>
+                    <div class="description">Of landfill space avoided each year</div>
                 </div>
             </div>
         </div>
@@ -393,12 +425,12 @@
         <div class="container">
             <h2 class="section-title">Media Hub</h2>
             <div class="media-hub-grid">
-                <div class="poster-container">
+                <div class="poster-container" style="text-align: center;">
                     <h3>Project Poster</h3>
-                    <!-- TODO: Replace 'project-poster.png' with an image of your poster -->
-                    <img src="project-poster.png" alt="Coolock Project Poster">
-                    <!-- TODO: Replace 'project-poster.pdf' with your poster file for download -->
-                    <a href="project-poster.pdf" class="download-button" download>Download Poster (PDF)</a>
+                    <!-- TODO: Replace 'project-poster.jpg' with an image of your poster in the 'assets' folder -->
+                    <img src="assets/project-poster.jpg" alt="Coolock Project Poster">
+                    <!-- TODO: Replace 'project-poster.pdf' with your poster file in the 'assets' folder -->
+                    <a href="assets/project-poster.pdf" class="btn" style="margin-top: 25px;" download>Download Poster (PDF)</a>
                 </div>
                 <div class="video-container">
                     <!-- TODO: Replace this entire iframe with the embed code from your YouTube video -->
@@ -408,24 +440,24 @@
         </div>
     </section>
 
-    <section id="cta">
-        <div class="container">
-            <h2 class="section-title" style="color:#fff;">Help Us Launch Our Pilot</h2>
-            <p>We are seeking S$10,000 for a pilot test of one Coolock unit. This will allow us to gather feedback and demonstrate the benefits to the student community over a one-month period in a public space on campus.</p>
-            <a href="mailto:n2504344k@e.ntu.edu.sg?subject=Coolock Pilot Funding Inquiry" class="cta-button">Partner With Us</a>
+    <section id="cta" style="background-color: var(--primary-color);">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="color:var(--white-color);">Help Us Launch Our Pilot</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">We are seeking S$10,000 for a pilot test of one Coolock unit. This will allow us to gather feedback and demonstrate the benefits to the student community.</p>
+            <a href="mailto:your-email@example.com?subject=Coolock Pilot Funding Inquiry" class="btn" style="background-color: var(--white-color); color: var(--primary-color);">Partner With Us</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div class="footer-logos">
-                <!-- TODO: Add logos of supporting institutions -->
-                <img src="ntu-logo.png" alt="NTU Logo">
+                <!-- TODO: Add logos of supporting institutions to the 'assets' folder -->
+                <img src="assets/ntu-logo.png" alt="NTU Logo">
             </div>
-            <p>&copy; 2025 Coolock. All Rights Reserved.</p>
             <div class="credits">
                 <p>A project by <strong>Group 1</strong> from ET5131.</p>
                 <p>Special thanks to our professor, Lerwen Liu.</p>
+                <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2025 Coolock. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
