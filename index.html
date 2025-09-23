@@ -36,7 +36,15 @@
             justify-content: space-between;
             align-items: center;
         }
-        header h1 {
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        .logo-container h1 {
             margin: 0;
             font-size: 1.8rem;
             color: #007bff;
@@ -71,6 +79,13 @@
             margin-bottom: 40px;
             font-size: 2.5rem;
             font-weight: 700;
+        }
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: -20px auto 40px auto;
+            font-size: 1.1rem;
+            color: #555;
         }
         /* Hero Section (Home) */
         #home {
@@ -113,10 +128,14 @@
         .card p {
             font-size: 1rem;
         }
-        /* Impact Section Specific Styles */
-        .impact-card {
-            text-align: center;
+        /* Image styling */
+        .fridge-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
         }
+        /* Impact Section Specific Styles */
         .impact-card .stat {
             font-size: 2.5rem;
             font-weight: 700;
@@ -127,9 +146,46 @@
             color: #555;
             margin-top: 10px;
         }
-        /* "How it Works" Section */
-        #how .grid {
+        /* Media Hub (Poster & Video) Section */
+        .media-hub-grid {
+            display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .poster-container img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .download-button {
+            display: inline-block;
+            background: #28a745;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .download-button:hover {
+            background: #218838;
         }
         /* Call to Action Section */
         #cta {
@@ -154,25 +210,40 @@
         footer {
             background: #f2f2f2;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             color: #555;
+        }
+        .credits {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .footer-logos img {
+            height: 40px;
+            margin: 0 15px;
+            filter: grayscale(100%);
+            opacity: 0.6;
         }
         /* Responsive Design */
         @media(max-width: 768px) {
             header .container {
                 flex-direction: column;
             }
+            nav ul {
+                margin-top: 15px;
+            }
             nav ul li {
-                display: block;
-                margin: 10px 0;
-                text-align: center;
+                display: inline;
+                margin: 0 10px;
             }
             #home {
                 height: auto;
                 padding: 100px 20px;
             }
-            #how .grid {
+            .media-hub-grid {
                 grid-template-columns: 1fr;
+            }
+            .video-container {
+                margin-top: 30px;
             }
         }
     </style>
@@ -181,28 +252,55 @@
 
     <header>
         <div class="container">
-            <h1>Coolock</h1>
+            <div class="logo-container">
+                <!-- TODO: Replace 'coolock-logo.png' with your actual logo file -->
+                <img src="coolock-logo.png" alt="Coolock Logo">
+                <h1>Coolock</h1>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#about">The What</a></li>
-                    <li><a href="#how">The How</a></li>
-                    <li><a href="#impact">The Impact</a></li>
-                    <li><a href="#who">The Who</a></li>
-                    <li><a href="#cta">Get Involved</a></li>
+                    <li><a href="#why">Why</a></li>
+                    <li><a href="#what">What</a></li>
+                    <li><a href="#how">How</a></li>
+                    <li><a href="#who">Who</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#media">Media</a></li>
+                    <li><a href="#cta">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section id="home">
-        <h2>Tired of noisy, smelly, and wasteful personal fridges?</h2>
-        <p>Coolock offers a smart, sustainable, and affordable shared refrigeration solution for university students. Say goodbye to the hassle of owning a fridge and hello to a cooler way to live on campus.</p>
+        <h2>A smarter, sustainable, and shared fridge for university life.</h2>
+        <p>Say goodbye to the hassle of owning a fridge and hello to a cooler way to live on campus.</p>
     </section>
 
-    <section id="about">
+    <section id="why">
+        <div class="container">
+            <h2 class="section-title">WHY: The Problem with Personal Fridges</h2>
+            <p class="section-subtitle">Personal mini-fridges in dorm rooms are a source of significant environmental waste, noise pollution, and inconvenience for students. Fridges are a necessity, but the current model is broken.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Environmentally Damaging</h3>
+                    <p>Thousands of individual fridges on campus consume massive amounts of electricity and create tons of e-waste, CO2 emissions, and landfill every year.</p>
+                </div>
+                <div class="card">
+                    <h3>Disruptive to Student Life</h3>
+                    <p>The constant 43 dB hum is 40% over WHO guidelines for sleep. They take up precious room space, create bad smells, and are a hassle to maintain, move, and dispose of.</p>
+                </div>
+                <div class="card">
+                    <h3>Inefficient and Costly</h3>
+                    <p>Students pay for electricity and the fridge itself, only to throw it away or sell it at a loss. It's a wasteful cycle, year after year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="what">
         <div class="container">
             <h2 class="section-title">WHAT: Our Solution</h2>
-            <p style="text-align:center; max-width: 800px; margin: auto;">Coolock is a shared, secure community fridge system designed for university dormitories. It's simple, efficient, and built for student life.</p>
+            <p class="section-subtitle">Coolock is a shared, secure community fridge system designed for university dormitories. It's simple, efficient, and built for student life.</p>
             <div class="grid">
                 <div class="card">
                     <h3>Simple Pin-Code Access</h3>
@@ -215,6 +313,8 @@
                 <div class="card">
                     <h3>Conveniently Located</h3>
                     <p>We install and maintain a Coolock unit in the pantry or kitchen area on each floor of the residence hall, right where you need it.</p>
+                    <!-- TODO: Replace 'fridge-photo.jpg' with an actual photo of the fridge lockers -->
+                    <img src="fridge-photo.jpg" alt="Coolock shared fridge lockers" class="fridge-image">
                 </div>
             </div>
         </div>
@@ -222,7 +322,7 @@
 
     <section id="how">
         <div class="container">
-            <h2 class="section-title">HOW: The Model</h2>
+            <h2 class="section-title">HOW: The Business Model</h2>
             <div class="grid">
                 <div class="card">
                     <h3>For Students</h3>
@@ -236,44 +336,10 @@
         </div>
     </section>
 
-    <section id="impact">
-        <div class="container">
-            <h2 class="section-title">IMPACT: A Greener & Better Campus</h2>
-            <div class="grid">
-                <div class="impact-card">
-                    <div class="stat">75%</div>
-                    <div class="description">Reduction in electricity, saving 1.6 million kWh per year – enough to power 400 HDB flats.</div>
-                </div>
-                <div class="impact-card">
-                    <div class="stat">19,000 kg</div>
-                    <div class="description">Of e-waste avoided annually, equivalent to the weight of a fully loaded double-decker bus.</div>
-                </div>
-                <div class="impact-card">
-                    <div class="stat">131,000 kg</div>
-                    <div class="description">Of CO2 saved per year, which would require planting 21,000 trees to offset.</div>
-                </div>
-            </div>
-             <div class="grid" style="margin-top: 30px;">
-                <div class="card">
-                    <h3>Better Living Conditions</h3>
-                    <p>Eliminate the constant 43 dB hum from personal fridges—40% over WHO guidelines for sleeping spaces. Reclaim up to 1/20 of your floor space and say goodbye to bad smells in your room.</p>
-                </div>
-                <div class="card">
-                    <h3>Time & Effort Saved</h3>
-                    <p>Students save an average of 5 hours on collecting and disposing of a personal fridge, plus 6 hours annually on cleaning and maintenance.</p>
-                </div>
-                 <div class="card">
-                    <h3>Reduced Landfill</h3>
-                    <p>Avoids 175 cubic meters of landfill space annually – the volume of five 20-foot shipping containers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="who">
         <div class="container">
             <h2 class="section-title">WHO: Team & Partners</h2>
-            <p style="text-align:center; max-width: 800px; margin: auto;">Our success relies on a strong network of customers, partners, and supporters working together to create a more sustainable campus life.</p>
+            <p class="section-subtitle">Our success relies on a strong network of customers, partners, and supporters working together to create a more sustainable campus life.</p>
             <div class="grid">
                 <div class="card">
                     <h3>Our Customers</h3>
@@ -291,6 +357,57 @@
         </div>
     </section>
 
+    <section id="impact">
+        <div class="container">
+            <h2 class="section-title">IMPACT: A Greener & Better Campus</h2>
+            <div class="grid">
+                <div class="card impact-card">
+                    <div class="stat">75%</div>
+                    <div class="description">Reduction in electricity, saving 1.6 million kWh per year.</div>
+                </div>
+                <div class="card impact-card">
+                    <div class="stat">19,000 kg</div>
+                    <div class="description">Of e-waste avoided annually, the weight of a double-decker bus.</div>
+                </div>
+                <div class="card impact-card">
+                    <div class="stat">131,000 kg</div>
+                    <div class="description">Of CO2 saved per year, requiring 21,000 trees to offset.</div>
+                </div>
+                <div class="card impact-card">
+                    <div class="stat">40%</div>
+                    <div class="description">Noise reduction in rooms by eliminating fridges that exceed WHO sleep guidelines.</div>
+                </div>
+                <div class="card impact-card">
+                    <div class="stat">11 Hours</div>
+                    <div class="description">Average time saved per student per year on fridge cleaning, maintenance, and logistics.</div>
+                </div>
+                 <div class="card impact-card">
+                    <div class="stat">175 m³</div>
+                    <div class="description">Of landfill space avoided annually, the volume of five shipping containers.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="media">
+        <div class="container">
+            <h2 class="section-title">Media Hub</h2>
+            <div class="media-hub-grid">
+                <div class="poster-container">
+                    <h3>Project Poster</h3>
+                    <!-- TODO: Replace 'project-poster.png' with an image of your poster -->
+                    <img src="project-poster.png" alt="Coolock Project Poster">
+                    <!-- TODO: Replace 'project-poster.pdf' with your poster file for download -->
+                    <a href="project-poster.pdf" class="download-button" download>Download Poster (PDF)</a>
+                </div>
+                <div class="video-container">
+                    <!-- TODO: Replace this entire iframe with the embed code from your YouTube video -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="cta">
         <div class="container">
             <h2 class="section-title" style="color:#fff;">Help Us Launch Our Pilot</h2>
@@ -301,7 +418,15 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Coolock Project. All Rights Reserved.</p>
+            <div class="footer-logos">
+                <!-- TODO: Add logos of supporting institutions -->
+                <img src="ntu-logo.png" alt="NTU Logo">
+            </div>
+            <p>&copy; 2025 Coolock. All Rights Reserved.</p>
+            <div class="credits">
+                <p>A project by <strong>Group 1</strong> from ET5131.</p>
+                <p>Special thanks to our professor, Lerwen Liu.</p>
+            </div>
         </div>
     </footer>
 
